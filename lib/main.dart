@@ -20,10 +20,10 @@ class FacebookReplication extends StatelessWidget {
           title: 'Facebook Replication',
           initialRoute: '/home',
           routes: {
-            '/newsfeed': (context) => const NewsFeedScreen(),
+            '/newsfeed': (context) => const NewsfeedScreen(),
             '/home': (context) => const HomeScreen(),
           },
-        )
+        );
       }
     );
   }
