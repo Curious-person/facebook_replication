@@ -15,6 +15,11 @@ class _HomeScreenState extends State<HomeScreen> {
     int _selectedIndex = 0;
     final PageController _pageController = PageController();
 
+  List<String> titles = <String> [
+  'Home',
+  'Friends',
+];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,8 +27,30 @@ class _HomeScreenState extends State<HomeScreen> {
             shadowColor: FB_TEXT_COLOR_WHITE,
             elevation: 2,
             title: CustomFont(text: 'facebook', fontSize: ScreenUtil(
-        ).setSp(25), color: FB_PRIMARY, fontFamily: 'Klavika',),
+          ).setSp(25), color: FB_PRIMARY, fontFamily: 'Klavika',
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.search),
+            tooltip: 'Search',
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Search')),
+              );
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.chat),
+            tooltip: 'Message',
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Message')),
+              );
+            },
+          ),
+        ],
        ),
+      
        body: PageView(
         controller: _pageController,
         children: const <Widget> [
