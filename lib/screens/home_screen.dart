@@ -22,7 +22,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return MaterialApp(
+      home: DefaultTabController(
+        length: 2,
+        child: Scaffold(
         appBar: AppBar(
             shadowColor: FB_TEXT_COLOR_WHITE,
             elevation: 2,
@@ -49,9 +52,16 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           ),
         ],
+        bottom: TabBar(
+          tabs: [
+            Tab(icon: Icon(Icons.home), text: 'Home'),
+            Tab(icon: Icon(Icons.people), text: 'Friends'),
+            ],
+          ),
        ),
-      
-       body: PageView(
+       ),
+      ),
+       body: const TabBarView(
         controller: _pageController,
         children: const <Widget> [
             NewsfeedScreen(),
@@ -75,6 +85,8 @@ class _HomeScreenState extends State<HomeScreen> {
         currentIndex: _selectedIndex,
        ),
     );
+    // Synchronize BottomNavigationBar with TabBar
+    DefaultTabController.of(context)?.animateTo(index);
   }
 
   void _onTappedBar(int value) {
