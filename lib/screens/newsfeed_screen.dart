@@ -10,11 +10,21 @@ class NewsfeedScreen extends StatelessWidget {
       children: const [
         NewsfeedCard(
           userName: 'John Doe',
-          postContent: 'Hello, this is my first post on Facebook.'
+          date: 'December 24',
+          postContent: 'Hello, this is my first post on Facebook.',
+          likes: 42,
+          comments: 100,
+          shares: 65,
+          hashtag: '#flutter'
         ),
         NewsfeedCard(
-          userName: 'Jane Smith',
-          postContent: 'Flutter es muy bueno.'
+          userName: 'Juana Herrero',
+          date: 'October 29',
+          postContent: 'Flutter es muy bueno.',
+          likes: 17,
+          comments: 3,
+          shares: 10,
+          hashtag: '#meamoflutter',
         ),
       ],
     );

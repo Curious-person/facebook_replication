@@ -17,6 +17,7 @@ class FacebookReplication extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
+          debugShowMaterialGrid: false,
           title: 'Facebook Replication',
           initialRoute: '/home',
           routes: {
