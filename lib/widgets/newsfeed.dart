@@ -253,7 +253,7 @@ class NewsfeedCard extends StatelessWidget {
                   width: ScreenUtil().setSp(10),
                 ),
                 Container(
-                  width: ScreenUtil().setSp(300),
+                  width: ScreenUtil().setSp(320),
                   child: TextField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
