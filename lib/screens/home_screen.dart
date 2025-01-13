@@ -1,3 +1,4 @@
+import 'package:facebook_replication/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants.dart';
@@ -22,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
     NewsfeedScreen(),
     Center(child: Text('Friends Screen')), 
     Center(child: Text('Marketplace Screen')), 
-    Center(child: Text('Account Screen')), 
+    ProfileScreen(),
   ];
 
   @override
@@ -87,8 +88,8 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: _onTappedBar,
         items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.notifications), label: 'Notifications'),
+            BottomNavigationBarItem(icon: Icon(Icons.notifications), label: 'Notifications'),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
         selectedItemColor: FB_PRIMARY,
         currentIndex: _selectedIndex,

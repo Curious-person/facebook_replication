@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../screens/home_screen.dart';
 import '../screens/newsfeed_screen.dart';
+import '../screens/profile_screen.dart';
 
 void main() => runApp(const FacebookReplication());
 
@@ -23,6 +24,7 @@ class FacebookReplication extends StatelessWidget {
           routes: {
             '/newsfeed': (context) => const NewsfeedScreen(),
             '/home': (context) => const HomeScreen(),
+            '/profile': (context) => const ProfileScreen(),
           },
         );
       }
