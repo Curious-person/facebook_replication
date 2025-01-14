@@ -1,8 +1,10 @@
 import 'package:facebook_replication/constants.dart';
+import 'package:facebook_replication/screens/newsfeed_screen.dart';
 import 'package:facebook_replication/widgets/custom_button.dart';
 import 'package:facebook_replication/widgets/customfont.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:facebook_replication/widgets/photos.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -100,7 +102,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         SizedBox(width: ScreenUtil().setWidth(5)),
                         CustomFont(
-                          text: '1', 
+                          text: '16', 
                           fontSize: ScreenUtil().setSp(15), 
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
@@ -160,12 +162,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ],
               ),
               SizedBox(
-                height: ScreenUtil().setHeight(2000),
+                height: ScreenUtil().setHeight(200),
                 child: TabBarView(
                   children: [
-                    Text("Post Section"),
-                    Text("About Section"),
-                    Text("Photos Section"),
+                    ProfileSection(),
+                    AboutFeed(),
+                    PhotoGrid(),
                   ]
                 ),
               ),

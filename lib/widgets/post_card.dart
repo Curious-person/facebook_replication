@@ -275,3 +275,232 @@ class NewsfeedCard extends StatelessWidget {
     );
   }
 }
+
+class AboutCard extends StatelessWidget {
+  final String userName;
+  final String postContent;
+  final String hashtag;
+  final String date;
+  final int likes;
+  final int comments;
+  final int shares;
+  final Image? userImage;
+
+
+  const AboutCard(
+    {super.key, required this.userName, required this.postContent, required this.hashtag, required this.date, required this.likes, required this.comments, required this.shares, this.userImage});
+
+  @override
+  Widget build(BuildContext context) {
+return Card(
+      margin: EdgeInsets.all(ScreenUtil().setSp(10)),
+      child: Padding(
+        padding: EdgeInsets.all(ScreenUtil().setSp(10)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    CircleAvatar(
+                          radius: ScreenUtil().setSp(20),
+                          backgroundColor: FB_DARK_PRIMARY,
+                          child: Placeholder(
+                            fallbackHeight: ScreenUtil().setSp(20),
+                            fallbackWidth: ScreenUtil().setSp(20),
+                            color: Colors.red,
+                          ),
+                        ),
+                  SizedBox(
+                    width: ScreenUtil().setSp(10)),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CustomFont(
+                          text: userName,
+                          fontSize: ScreenUtil().setSp(15),
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          ),
+                        Row(
+                          children: [
+                            CustomFont(
+                              text: date,
+                              fontSize: ScreenUtil().setSp(8),
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal,
+                              ),
+                            SizedBox(
+                              width: ScreenUtil().setSp(5),
+                            ),
+                            //place globe icon 
+                            Padding(
+                              padding: EdgeInsets.only(bottom: ScreenUtil().setSp(4)),
+                              child: Icon(
+                                Icons.public,
+                                size: ScreenUtil().setSp(8), 
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              Row(
+                  children: [
+                    CircleAvatar(
+                          radius: ScreenUtil().setSp(20),
+                          backgroundColor: FB_DARK_PRIMARY,
+                          child: Placeholder(
+                            fallbackHeight: ScreenUtil().setSp(20),
+                            fallbackWidth: ScreenUtil().setSp(20),
+                            color: Colors.red,
+                          ),
+                        ),
+                  SizedBox(
+                    width: ScreenUtil().setSp(10)),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CustomFont(
+                          text: userName,
+                          fontSize: ScreenUtil().setSp(15),
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          ),
+                        Row(
+                          children: [
+                            CustomFont(
+                              text: date,
+                              fontSize: ScreenUtil().setSp(8),
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal,
+                              ),
+                            SizedBox(
+                              width: ScreenUtil().setSp(5),
+                            ),
+                            //place globe icon 
+                            Padding(
+                              padding: EdgeInsets.only(bottom: ScreenUtil().setSp(4)),
+                              child: Icon(
+                                Icons.public,
+                                size: ScreenUtil().setSp(8), 
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+            ],
+          ),
+            SizedBox(
+              height: ScreenUtil().setSp(10)),
+
+            Row(
+                  children: [
+                    CircleAvatar(
+                          radius: ScreenUtil().setSp(20),
+                          backgroundColor: FB_DARK_PRIMARY,
+                          child: Placeholder(
+                            fallbackHeight: ScreenUtil().setSp(20),
+                            fallbackWidth: ScreenUtil().setSp(20),
+                            color: Colors.red,
+                          ),
+                        ),
+                  SizedBox(
+                    width: ScreenUtil().setSp(10)),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CustomFont(
+                          text: userName,
+                          fontSize: ScreenUtil().setSp(15),
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          ),
+                        Row(
+                          children: [
+                            CustomFont(
+                              text: date,
+                              fontSize: ScreenUtil().setSp(8),
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal,
+                              ),
+                            SizedBox(
+                              width: ScreenUtil().setSp(5),
+                            ),
+                            //place globe icon 
+                            Padding(
+                              padding: EdgeInsets.only(bottom: ScreenUtil().setSp(4)),
+                              child: Icon(
+                                Icons.public,
+                                size: ScreenUtil().setSp(8), 
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: ScreenUtil().setSp(10),
+                ),
+            Row(
+                  children: [
+                    CircleAvatar(
+                          radius: ScreenUtil().setSp(20),
+                          backgroundColor: FB_DARK_PRIMARY,
+                          child: Placeholder(
+                            fallbackHeight: ScreenUtil().setSp(20),
+                            fallbackWidth: ScreenUtil().setSp(20),
+                            color: Colors.red,
+                          ),
+                        ),
+                  SizedBox(
+                    width: ScreenUtil().setSp(10)),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CustomFont(
+                          text: userName,
+                          fontSize: ScreenUtil().setSp(15),
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          ),
+                        Row(
+                          children: [
+                            CustomFont(
+                              text: date,
+                              fontSize: ScreenUtil().setSp(8),
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal,
+                              ),
+                            SizedBox(
+                              width: ScreenUtil().setSp(5),
+                            ),
+                            //place globe icon 
+                            Padding(
+                              padding: EdgeInsets.only(bottom: ScreenUtil().setSp(4)),
+                              child: Icon(
+                                Icons.public,
+                                size: ScreenUtil().setSp(8), 
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),          
+          ],
+        ),
+        ),
+    );
+  }
+  }
