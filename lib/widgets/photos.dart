@@ -19,35 +19,24 @@ return CustomScrollView(
         crossAxisCount: 2,
         children: <Widget>[
           Container(
-            padding: const EdgeInsets.all(8),
-            color: Colors.green[100],
-            child: const Text("He'd have you all unravel at the"),
+            child: Image.asset('assets/images/1.jpg'),
           ),
           Container(
-            padding: const EdgeInsets.all(8),
-            color: Colors.green[200],
-            child: const Text('Heed not the rabble'),
+            child: Image.asset('assets/images/2.jpg'),
           ),
           Container(
-            padding: const EdgeInsets.all(8),
-            color: Colors.green[300],
-            child: const Text('Sound of screams but the'),
+            child: Image.asset('assets/images/3.jpg'),
           ),
           Container(
-            padding: const EdgeInsets.all(8),
-            color: Colors.green[400],
-            child: const Text('Who scream'),
+            child: Image.asset('assets/images/4.jpg'),
           ),
           Container(
-            padding: const EdgeInsets.all(8),
-            color: Colors.green[500],
-            child: const Text('Revolution is coming...'),
+            child: Image.asset('assets/images/5.jpg'),
           ),
           Container(
-            padding: const EdgeInsets.all(8),
-            color: Colors.green[600],
-            child: const Text('Revolution, they...'),
+            child: Image.asset('assets/images/6.jpg'),
           ),
+
         ],
       ),
     ),

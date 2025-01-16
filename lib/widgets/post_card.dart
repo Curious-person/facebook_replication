@@ -277,18 +277,15 @@ class NewsfeedCard extends StatelessWidget {
 }
 
 class AboutCard extends StatelessWidget {
-  final String userName;
-  final String postContent;
-  final String hashtag;
-  final String date;
-  final int likes;
-  final int comments;
-  final int shares;
-  final Image? userImage;
+  final String birthday;
+  final String location;
+  final String studyplace;
+  final String work;
+  final String relationship;
 
 
   const AboutCard(
-    {super.key, required this.userName, required this.postContent, required this.hashtag, required this.date, required this.likes, required this.comments, required this.shares, this.userImage});
+    {super.key, required this.birthday, required this.location, required this.studyplace, required this.work, required this.relationship});
 
   @override
   Widget build(BuildContext context) {
@@ -305,21 +302,21 @@ return Card(
                 Row(
                   children: [
                     CircleAvatar(
-                          radius: ScreenUtil().setSp(20),
-                          backgroundColor: FB_DARK_PRIMARY,
-                          child: Placeholder(
-                            fallbackHeight: ScreenUtil().setSp(20),
-                            fallbackWidth: ScreenUtil().setSp(20),
-                            color: Colors.red,
+                        radius: ScreenUtil().setSp(20),
+                        backgroundColor: Colors.grey.shade300,
+                        child: Icon(
+                          Icons.cake, // Replace with the desired icon
+                          size: ScreenUtil().setSp(20),
+                          color: Colors.black, // Set the icon color
                           ),
                         ),
                   SizedBox(
-                    width: ScreenUtil().setSp(10)),
+                    width: ScreenUtil().setSp(5)),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CustomFont(
-                          text: userName,
+                          text: birthday,
                           fontSize: ScreenUtil().setSp(15),
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
@@ -327,7 +324,7 @@ return Card(
                         Row(
                           children: [
                             CustomFont(
-                              text: date,
+                              text: 'Born on',
                               fontSize: ScreenUtil().setSp(8),
                               color: Colors.black,
                               fontWeight: FontWeight.normal,
@@ -335,14 +332,7 @@ return Card(
                             SizedBox(
                               width: ScreenUtil().setSp(5),
                             ),
-                            //place globe icon 
-                            Padding(
-                              padding: EdgeInsets.only(bottom: ScreenUtil().setSp(4)),
-                              child: Icon(
-                                Icons.public,
-                                size: ScreenUtil().setSp(8), 
-                              ),
-                            ),
+                            
                           ],
                         ),
                       ],
@@ -352,12 +342,12 @@ return Card(
               Row(
                   children: [
                     CircleAvatar(
-                          radius: ScreenUtil().setSp(20),
-                          backgroundColor: FB_DARK_PRIMARY,
-                          child: Placeholder(
-                            fallbackHeight: ScreenUtil().setSp(20),
-                            fallbackWidth: ScreenUtil().setSp(20),
-                            color: Colors.red,
+                        radius: ScreenUtil().setSp(20),
+                        backgroundColor: Colors.grey.shade300,
+                        child: Icon(
+                          Icons.home, // Replace with the desired icon
+                          size: ScreenUtil().setSp(20),
+                          color: Colors.black, // Set the icon color
                           ),
                         ),
                   SizedBox(
@@ -366,7 +356,7 @@ return Card(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CustomFont(
-                          text: userName,
+                          text: location,
                           fontSize: ScreenUtil().setSp(15),
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
@@ -374,7 +364,7 @@ return Card(
                         Row(
                           children: [
                             CustomFont(
-                              text: date,
+                              text: 'Lives in',
                               fontSize: ScreenUtil().setSp(8),
                               color: Colors.black,
                               fontWeight: FontWeight.normal,
@@ -382,14 +372,7 @@ return Card(
                             SizedBox(
                               width: ScreenUtil().setSp(5),
                             ),
-                            //place globe icon 
-                            Padding(
-                              padding: EdgeInsets.only(bottom: ScreenUtil().setSp(4)),
-                              child: Icon(
-                                Icons.public,
-                                size: ScreenUtil().setSp(8), 
-                              ),
-                            ),
+                        
                           ],
                         ),
                       ],
@@ -404,12 +387,12 @@ return Card(
             Row(
                   children: [
                     CircleAvatar(
-                          radius: ScreenUtil().setSp(20),
-                          backgroundColor: FB_DARK_PRIMARY,
-                          child: Placeholder(
-                            fallbackHeight: ScreenUtil().setSp(20),
-                            fallbackWidth: ScreenUtil().setSp(20),
-                            color: Colors.red,
+                        radius: ScreenUtil().setSp(20),
+                        backgroundColor: Colors.grey.shade300,
+                        child: Icon(
+                          Icons.school, // Replace with the desired icon
+                          size: ScreenUtil().setSp(20),
+                          color: Colors.black, // Set the icon color
                           ),
                         ),
                   SizedBox(
@@ -418,7 +401,7 @@ return Card(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CustomFont(
-                          text: userName,
+                          text: studyplace,
                           fontSize: ScreenUtil().setSp(15),
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
@@ -426,7 +409,7 @@ return Card(
                         Row(
                           children: [
                             CustomFont(
-                              text: date,
+                              text: 'Studied at',
                               fontSize: ScreenUtil().setSp(8),
                               color: Colors.black,
                               fontWeight: FontWeight.normal,
@@ -434,14 +417,7 @@ return Card(
                             SizedBox(
                               width: ScreenUtil().setSp(5),
                             ),
-                            //place globe icon 
-                            Padding(
-                              padding: EdgeInsets.only(bottom: ScreenUtil().setSp(4)),
-                              child: Icon(
-                                Icons.public,
-                                size: ScreenUtil().setSp(8), 
-                              ),
-                            ),
+
                           ],
                         ),
                       ],
@@ -454,12 +430,12 @@ return Card(
             Row(
                   children: [
                     CircleAvatar(
-                          radius: ScreenUtil().setSp(20),
-                          backgroundColor: FB_DARK_PRIMARY,
-                          child: Placeholder(
-                            fallbackHeight: ScreenUtil().setSp(20),
-                            fallbackWidth: ScreenUtil().setSp(20),
-                            color: Colors.red,
+                        radius: ScreenUtil().setSp(20),
+                        backgroundColor: Colors.grey.shade300,
+                        child: Icon(
+                          Icons.work, 
+                          size: ScreenUtil().setSp(20),
+                          color: Colors.black, // Set the icon color
                           ),
                         ),
                   SizedBox(
@@ -468,7 +444,7 @@ return Card(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CustomFont(
-                          text: userName,
+                          text: work,
                           fontSize: ScreenUtil().setSp(15),
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
@@ -476,7 +452,7 @@ return Card(
                         Row(
                           children: [
                             CustomFont(
-                              text: date,
+                              text: 'Works at',
                               fontSize: ScreenUtil().setSp(8),
                               color: Colors.black,
                               fontWeight: FontWeight.normal,
@@ -484,14 +460,7 @@ return Card(
                             SizedBox(
                               width: ScreenUtil().setSp(5),
                             ),
-                            //place globe icon 
-                            Padding(
-                              padding: EdgeInsets.only(bottom: ScreenUtil().setSp(4)),
-                              child: Icon(
-                                Icons.public,
-                                size: ScreenUtil().setSp(8), 
-                              ),
-                            ),
+ 
                           ],
                         ),
                       ],

@@ -62,13 +62,11 @@ class AboutFeed extends StatelessWidget {
     return ListView(
       children: const [
         AboutCard(
-          userName: 'This is about card',
-          date: 'December 16',
-          postContent: 'Hello, this is my first post on Facebook.',
-          likes: 45,
-          comments: 106,
-          shares: 65,
-          hashtag: '#flutter'
+          birthday: 'December 24',
+          location: 'Cebu City',
+          studyplace: 'University of San Carlos',
+          work: 'Freelancer',
+          relationship: 'Single',
         ),
       ],
     );
