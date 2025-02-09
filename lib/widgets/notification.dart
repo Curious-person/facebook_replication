@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../screens/detail_screen.dart';
 
-class Notification extends StatelessWidget {
-  const Notification(
+class NotificationItem extends StatelessWidget {
+  const NotificationItem(
     {super.key,
     required this.name,
     required this.post,

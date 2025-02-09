@@ -4,10 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants.dart';
 import '../screens/newsfeed_screen.dart';
 import '../widgets/customfont.dart';
-
-//note: understand how DefaultTabController works with TabBar and TabBarView and under appbar.
-//goal: to create a home screen with a tab bar and a bottom navigation bar.
-// the issue: i used defaulttabcontroller and pagecontroller which is clashing in tabview
+import 'notification_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,15 +13,32 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin{
     int _selectedIndex = 0;
+    late TabController _tabController;
 
   final List<Widget> _tabViews = [
     NewsfeedScreen(),
-    Center(child: Text('Friends Screen')), 
-    Center(child: Text('Marketplace Screen')), 
+    NotificationScreen(), 
     ProfileScreen(),
   ];
+
+    @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 4, vsync: this);
+    _tabController.addListener(() {
+      setState(() {
+        _selectedIndex = _tabController.index;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,17 +82,23 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
         bottom: TabBar(
+          controller: _tabController,
           indicatorColor: FB_PRIMARY,
           labelColor: FB_PRIMARY,
-          tabs: [
+          onTap: (index) {
+            setState(() {
+              _selectedIndex = index;
+            });
+          },
+          tabs: const [
             Tab(icon: Icon(Icons.home)),
-            Tab(icon: Icon(Icons.video_call_outlined)),
-            Tab(icon: Icon(Icons.store)),
+            Tab(icon: Icon(Icons.notifications)),
             Tab(icon: Icon(Icons.account_circle_outlined)),
             ],
           ),
        ),
         body: TabBarView(
+          controller: _tabController,
           children: _tabViews,
        ),
 
@@ -99,10 +119,12 @@ class _HomeScreenState extends State<HomeScreen> {
       );
   }
 
-  void _onTappedBar(int value) {
+  void _onTappedBar(int index) {
     setState(() {
-      _selectedIndex = value;
+      _selectedIndex = index;
+      _tabController.animateTo(index);
     });
-    DefaultTabController.of(context)?.animateTo(value);
+    
   }
 }
+

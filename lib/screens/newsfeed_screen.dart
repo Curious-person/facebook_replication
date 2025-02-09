@@ -9,24 +9,28 @@ class NewsfeedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: const [
+      children:  [
         NewsfeedCard(
           userName: 'John Doe Doe',
           date: 'December 24',
           postContent: 'Hello, this is my first post on Facebook.',
-          likes: 42,
+          numOfLikes: 42,
           comments: 100,
           shares: 65,
-          hashtag: '#flutter'
+          hashtag: '#flutter',
+          imagePost: 'assets/images/5.jpg',
+
         ),
         NewsfeedCard(
           userName: 'Juana Herrero',
           date: 'October 29',
           postContent: 'Flutter es muy bueno.',
-          likes: 17,
+          numOfLikes: 17,
           comments: 3,
           shares: 10,
           hashtag: '#meamoflutter',
+          imagePost: 'assets/images/2.jpg',
+
         ),
       ],
     );
@@ -39,15 +43,16 @@ class ProfileSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: const [
+      children:  [
         NewsfeedCard(
           userName: 'Juan Kevinito Abad',
           date: 'December 16',
           postContent: 'Hello, this is my first post on Facebook.',
-          likes: 45,
+          numOfLikes: 45,
           comments: 106,
           shares: 65,
-          hashtag: '#flutter'
+          hashtag: '#flutter',
+          imagePost: 'assets/images/3.jpg',
         ),
       ],
     );
@@ -67,6 +72,7 @@ class AboutFeed extends StatelessWidget {
           studyplace: 'University of San Carlos',
           work: 'Freelancer',
           relationship: 'Single',
+          
         ),
       ],
     );
