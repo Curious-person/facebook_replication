@@ -15,7 +15,13 @@ class _LogInScreenState extends State<LogInScreen> {
     TextEditingController usernameController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
     final _formKey = GlobalKey<FormState>();
+    bool isObscure = false;
 
+    @override 
+    void initState(){ 
+      super.initState(); 
+      isObscure=true; 
+    }     
 
   @override
   Widget build(BuildContext context) {
@@ -65,14 +71,31 @@ class _LogInScreenState extends State<LogInScreen> {
                                             height: ScreenUtil().setHeight(10),
                                             width: ScreenUtil().setWidth(10),
                                             controller: passwordController,
-                                            isObscure: true,
+                                            isObscure: isObscure,
                                             validator: (value) =>
                                                 value!.isEmpty ? 'Enter your password' : null,
                                             onSaved: (value) => passwordController = value!,
                                             fontSize: ScreenUtil().setSp(15),
                                             fontColor: FB_DARK_PRIMARY,
                                             hintTextSize: ScreenUtil().setSp(15),
-                                            hintText: 'Password'),
+                                            hintText: 'Password',
+                                            suffixIcon: Align(
+                                              widthFactor: 1.0,
+                                              heightFactor: 1.0,
+                                              child: IconButton(
+                                                icon: Icon(
+                                                  isObscure
+                                                      ? Icons.visibility
+                                                      : Icons.visibility_off,
+                                                  color: FB_DARK_PRIMARY,
+                                                ),
+                                                onPressed: () {
+                                                  setState(() {
+                                                    isObscure = !isObscure;
+                                                  });
+                                                },
+                                              ),
+                                            )),
                                         SizedBox(
                                             height: ScreenUtil().setHeight(50)
                                         ),
