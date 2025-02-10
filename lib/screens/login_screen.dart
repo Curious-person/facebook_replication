@@ -12,8 +12,8 @@ class LogInScreen extends StatefulWidget {
 }
 
 class _LogInScreenState extends State<LogInScreen> {
-    TextEditingController _emailController = TextEditingController();
-    TextEditingController _passwordController = TextEditingController();
+    TextEditingController usernameController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
     final _formKey = GlobalKey<FormState>();
 
 
@@ -78,8 +78,8 @@ class _LogInScreenState extends State<LogInScreen> {
                                         ),
                                         CustomInkwellButton(
                                             onTap: () {
-                                                if (_formkey.currentState!.validate()) {
-                                                    _formkey.currentState!.save();
+                                                if (_formKey.currentState!.validate()) {
+                                                    _formKey.currentState!.save();
                                                 }                                               
                                             },
                                             height: ScreenUtil().setHeight(40),

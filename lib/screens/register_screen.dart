@@ -179,7 +179,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 height: ScreenUtil().setHeight(45),
                 width: ScreenUtil().screenWidth,
                 fontSize: ScreenUtil().setSp(15),
-                FontWeight: FontWeight.bold,
+                fontWeight: FontWeight.bold,
                 buttonName: 'Submit',
               ),
             ],
