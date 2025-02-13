@@ -4,8 +4,7 @@ import 'package:facebook_replication/widgets/custom_inkwell_button.dart';
 import 'package:facebook_replication/widgets/custom_textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../widgets/custom_dialogs.dart';
+import 'package:facebook_replication/widgets/custom_dialogs.dart'; 
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -21,10 +20,44 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmpasswordController = TextEditingController();
+   bool isPasswordObscure = true;
+  bool isConfirmPasswordObscure = true;
 
   void register() {
     //TO DO: Create own validation
+    if (firstnameController.text.isEmpty ||
+        lastnameController.text.isEmpty ||
+        mobilenumController.text.isEmpty ||
+        usernameController.text.isEmpty ||
+        passwordController.text.isEmpty ||
+        confirmpasswordController.text.isEmpty) {
+          customDialog(
+              context,
+              title: "Missing Fields",
+              content: "Please fill up all fields.",
+              
+            );
+    } else if (passwordController.text != confirmpasswordController.text) {
+      customDialog(
+        context,
+        title: 'Error',
+        content: 'Password does not match',
+      );
+    } else {
+      customDialog(
+        context,
+        title: 'Success',
+        content: 'You have successfully registered',
+      );
+    }
   }
+
+      @override 
+    void initState(){ 
+      super.initState(); 
+          isPasswordObscure = true;
+    isConfirmPasswordObscure = true;
+    }     
 
   @override
   Widget build(BuildContext context) {
@@ -112,9 +145,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
               CustomTextFormField(
                 height: ScreenUtil().setHeight(10),
                 width: ScreenUtil().setWidth(10),
+                isObscure: isPasswordObscure,
                 onSaved: null,
                 fontColor: null,
                 hintText: 'Password',
+                suffixIcon: Align(
+                  widthFactor: 1.0,
+                  heightFactor: 1.0,
+                  child: IconButton(
+                    icon: Icon(
+                      isPasswordObscure
+                      ? Icons.visibility
+                      : Icons.visibility_off,
+                      color: FB_DARK_PRIMARY,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        isPasswordObscure = !isPasswordObscure;
+                      });
+                    },
+                  ),
+                ),
                 validator: (value) => null,
                 hintTextSize: ScreenUtil().setSp(15),
                 fontSize: ScreenUtil().setSp(15),
@@ -139,6 +190,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 onSaved: null,
                 fontColor: null,
                 hintText: 'Confirm Password',
+                isObscure: isConfirmPasswordObscure,
+                suffixIcon: Align(
+                  widthFactor: 1.0,
+                  heightFactor: 1.0,
+                  child: IconButton(
+                    icon: Icon(
+                      isConfirmPasswordObscure
+                      ? Icons.visibility
+                      : Icons.visibility_off,
+                      color: FB_DARK_PRIMARY,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        isConfirmPasswordObscure = !isConfirmPasswordObscure;
+                      });
+                    },
+                  ),
+                ),
                 validator: (value) => null,
                 hintTextSize: ScreenUtil().setSp(15),
                 fontSize: ScreenUtil().setSp(15),

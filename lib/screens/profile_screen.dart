@@ -7,16 +7,29 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:facebook_replication/widgets/photos.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key});
+    final String username;
+
+  const ProfileScreen({super.key,
+  required this.username
+  });
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+
+  
+
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
+  TextEditingController usernameController = TextEditingController(text: widget.username);
+
+  return Scaffold( 
+    appBar: AppBar(
+      title: Text(widget.username),
+    ),
+    body: DefaultTabController(
       length: 3,
       child: Container(
         color: Colors.white,
@@ -73,7 +86,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomFont(
-                      text: "Juan Kevinito Abad",
+                      text: widget.username,
                       fontWeight: FontWeight.bold,
                       fontSize: ScreenUtil().setSp(20), 
                       color: Colors.black,
@@ -175,6 +188,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ),
       ),
-    );
+    ),
+  );
   }
 }

@@ -28,6 +28,10 @@ class FacebookReplication extends StatelessWidget {
             '/home': (context) => const HomeScreen(),
             '/login': (context) => const LogInScreen(),
             '/register': (context) => const RegisterScreen(),
+              '/profile': (context) {
+            final args = ModalRoute.of(context)!.settings.arguments as String;
+            return ProfileScreen(username: args);
+            },
           },
         );
       }

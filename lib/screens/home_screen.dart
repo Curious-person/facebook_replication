@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   final List<Widget> _tabViews = [
     NewsfeedScreen(),
     NotificationScreen(), 
-    ProfileScreen(),
+    ProfileScreen(username: "DefaultUser"),
   ];
 
     @override

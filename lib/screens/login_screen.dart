@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants.dart';
 import '../widgets/custom_inkwell_button.dart';
+import 'profile_screen.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
@@ -59,7 +60,7 @@ class _LogInScreenState extends State<LogInScreen> {
                                             controller: usernameController,
                                             validator: (value) =>
                                                 value!.isEmpty ? 'Enter your username' : null,
-                                            onSaved: (value) => usernameController = value!,
+                                            onSaved: (value) => usernameController.text = value!,
                                             fontSize: ScreenUtil().setSp(15),
                                             fontColor: FB_DARK_PRIMARY,
                                             hintTextSize: ScreenUtil().setSp(15),
@@ -74,7 +75,7 @@ class _LogInScreenState extends State<LogInScreen> {
                                             isObscure: isObscure,
                                             validator: (value) =>
                                                 value!.isEmpty ? 'Enter your password' : null,
-                                            onSaved: (value) => passwordController = value!,
+                                            onSaved: (value) => passwordController.text = value!,
                                             fontSize: ScreenUtil().setSp(15),
                                             fontColor: FB_DARK_PRIMARY,
                                             hintTextSize: ScreenUtil().setSp(15),
@@ -103,12 +104,23 @@ class _LogInScreenState extends State<LogInScreen> {
                                             onTap: () {
                                                 if (_formKey.currentState!.validate()) {
                                                     _formKey.currentState!.save();
-                                                }                                               
+                                                    print("Username: ${usernameController.text}");
+                                                }
+
+                                                Navigator.of(context).push(
+                                                  MaterialPageRoute(
+                                                    builder: (context) => ProfileScreen(
+                                                      username: usernameController.text,
+                                                    ),
+                                                )
+                                                );
                                             },
                                             height: ScreenUtil().setHeight(40),
                                             width: ScreenUtil().screenWidth,
                                             buttonName: 'Log In',
                                             fontSize: ScreenUtil().setSp(15),
+
+                                            
                                         ),
                                     ],
                                 ),
