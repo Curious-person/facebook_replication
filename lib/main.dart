@@ -25,7 +25,10 @@ class FacebookReplication extends StatelessWidget {
           title: 'Facebook Replication',
           initialRoute: '/login',
           routes: {
-            '/home': (context) => const HomeScreen(),
+            '/home': (context) {
+              final args = ModalRoute.of(context)!.settings.arguments as String;
+              return HomeScreen(username: args);
+            },
             '/login': (context) => const LogInScreen(),
             '/register': (context) => const RegisterScreen(),
               '/profile': (context) {

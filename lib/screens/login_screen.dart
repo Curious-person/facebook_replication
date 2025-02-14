@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants.dart';
 import '../widgets/custom_inkwell_button.dart';
 import 'profile_screen.dart';
+import 'home_screen.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
@@ -104,16 +105,19 @@ class _LogInScreenState extends State<LogInScreen> {
                                             onTap: () {
                                                 if (_formKey.currentState!.validate()) {
                                                     _formKey.currentState!.save();
-                                                    print("Username: ${usernameController.text}");
-                                                }
+                                                    String username = usernameController.text;
+                                                    
+                                                
 
                                                 Navigator.of(context).push(
                                                   MaterialPageRoute(
-                                                    builder: (context) => ProfileScreen(
-                                                      username: usernameController.text,
-                                                    ),
-                                                )
+
+                                                    builder: (context) =>  HomeScreen(username: username),
+
+
+                                                ),
                                                 );
+                                                }
                                             },
                                             height: ScreenUtil().setHeight(40),
                                             width: ScreenUtil().screenWidth,

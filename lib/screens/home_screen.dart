@@ -7,7 +7,9 @@ import '../widgets/customfont.dart';
 import 'notification_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final String username;
+
+  const HomeScreen({super.key, required this.username});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -17,11 +19,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     int _selectedIndex = 0;
     late TabController _tabController;
 
-  final List<Widget> _tabViews = [
-    NewsfeedScreen(),
-    NotificationScreen(), 
-    ProfileScreen(username: "DefaultUser"),
-  ];
+
 
     @override
   void initState() {
@@ -42,6 +40,14 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
+
+
+  final List<Widget> _tabViews = [
+    NewsfeedScreen(),
+    NotificationScreen(), 
+    ProfileScreen(username: widget.username),
+  ];
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
@@ -100,6 +106,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         body: TabBarView(
           controller: _tabController,
           children: _tabViews,
+      
        ),
 
        bottomNavigationBar: BottomNavigationBar(
