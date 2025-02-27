@@ -62,8 +62,8 @@ class NewsfeedScreen extends StatelessWidget {
     return [
       PostCard(
         userName: 'Juan Kevinit Abad',
-        imageUrl: 'assets/images/1.jpg',
-        profileImageUrl: 'assets/images/1.jpg',
+        imageUrl: 'https://realismtoday.com/wp-content/uploads/2021/12/how-to-paint-realistic-portraits-Cesar-Santos-121621-696x1041.jpg',
+        profileImageUrl: 'https://realismtoday.com/wp-content/uploads/2021/12/how-to-paint-realistic-portraits-Cesar-Santos-121621-696x1041.jpg',
         postContent: 'Hello, this is my first post on Facebook.',
         date: 'October 11',
         isAds: true,
