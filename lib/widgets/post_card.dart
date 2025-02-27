@@ -4,6 +4,135 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants.dart';
 import '../widgets/customfont.dart';
 
+
+class PostCard extends StatelessWidget {
+  final String userName;
+  final String postContent;
+  final String date;
+  final String? imageUrl;
+  final String? profileImageUrl;
+  final int? numOfLikes;
+  final bool isAds;
+  final String? adsMarket;
+
+
+  const PostCard({
+    super.key,
+    required this.userName,
+    required this.postContent,
+    required this.date,
+    this.imageUrl,
+    this.profileImageUrl,
+    this.numOfLikes,
+    this.isAds = false,
+    this.adsMarket,
+  });
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.r),
+      ),
+      elevation: 5,
+      margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+      child: Padding(
+        padding: EdgeInsets.all(10.w),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                CircleAvatar(
+                  backgroundImage: profileImageUrl != null
+                      ? NetworkImage(profileImageUrl!)
+                      : null,
+                  radius: 20.r,
+                ),
+                SizedBox(width: 10.w),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      userName,
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      date,
+                      style: TextStyle(
+                        fontSize: 12.sp,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
+                Spacer(),
+                Icon(Icons.more_horiz),
+              ],
+            ),
+            SizedBox(height: 10.h),
+            Text(
+              postContent,
+              style: TextStyle(fontSize: 14.sp),
+            ),
+            if (imageUrl != null) ...[
+              SizedBox(height: 10.h),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10.r),
+                child: Image.network(
+                  imageUrl!,
+                  width: double.infinity,
+                  height: isAds ? 200.h : null,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ],
+            if (isAds && adsMarket != null) ...[
+              SizedBox(height: 10.h),
+              Text(
+                adsMarket!,
+                style: TextStyle(
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 5.h),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text('More Details'),
+              ),
+            ],
+            SizedBox(height: 10.h),
+            if (!isAds) ...[
+              Row(
+                children: [
+                  Icon(Icons.thumb_up, size: 20.sp, color: Colors.blue),
+                  SizedBox(width: 5.w),
+                  Text(numOfLikes?.toString() ?? '0'),
+                  Spacer(),
+                  Icon(Icons.comment, size: 20.sp, color: Colors.grey),
+                  SizedBox(width: 5.w),
+                  Text('Comment'),
+                  SizedBox(width: 10.w),
+                  Icon(Icons.share, size: 20.sp, color: Colors.grey),
+                  SizedBox(width: 5.w),
+                  Text('Share'),
+                ],
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
 class NewsfeedCard extends StatefulWidget {
   final String userName;
   final String postContent;
@@ -16,6 +145,8 @@ class NewsfeedCard extends StatefulWidget {
   final String? userImageUrl;
   final String imagePost;
   final bool atPost;
+
+  
 
   NewsfeedCard(
       {super.key,
@@ -551,3 +682,4 @@ return Card(
     );
   }
   }
+

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/post_card.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NewsfeedScreen extends StatelessWidget {
 
@@ -32,8 +34,60 @@ class NewsfeedScreen extends StatelessWidget {
           imagePost: 'assets/images/2.jpg',
 
         ),
+        PostCard(
+          userName: 'Robert Juanatas',
+          postContent: 'Kicking off this NU Manila heat session with GDGoC Boracay Special!',
+          numOfLikes: 42,
+          date: 'March 24',
+        ),
+
+        PostCard(
+          userName: 'Ruben Ali',
+          postContent: 'Coming soon...',
+          
+          date: 'September 11',
+        ),
+        CarouselSlider(
+            options: CarouselOptions(
+              enableInfiniteScroll: false, height: 308.h, padEnds: false),
+              items: carouselItems(),
+          ),
+          SizedBox(
+            height: 20.h,
+          )
       ],
     );
+  }
+  List<Widget> carouselItems() {
+    return [
+      PostCard(
+        userName: 'Juan Kevinit Abad',
+        imageUrl: 'assets/images/1.jpg',
+        profileImageUrl: 'assets/images/1.jpg',
+        postContent: 'Hello, this is my first post on Facebook.',
+        date: 'October 11',
+        isAds: true,
+        adsMarket: 'Flutter Philippines',
+      ),
+        PostCard(
+        userName: 'Juan Kevinit Abad',
+        imageUrl: 'assets/images/1.jpg',
+        profileImageUrl: 'assets/images/1.jpg',
+        postContent: 'Hello, this is my first post on Facebook.',
+        date: 'October 11',
+        isAds: true,
+        adsMarket: 'Flutter Philippines',
+      ),
+        PostCard(
+        userName: 'Juan Kevinit Abad',
+        imageUrl: 'assets/images/1.jpg',
+        profileImageUrl: 'assets/images/1.jpg',
+        postContent: 'Hello, this is my first post on Facebook.',
+        date: 'October 11',
+        isAds: true,
+        adsMarket: 'Flutter Philippines',
+      ),
+    ];
   }
 }
 
