@@ -6,6 +6,7 @@ class CustomFont extends StatelessWidget {
     required this.text,
     required this.fontSize,
     required this.color,
+     this.fontStyle = FontStyle.italic, 
     this.fontFamily = 'Frutiger',
     this.fontWeight = FontWeight.normal,
     this.textAlign = TextAlign.left,
@@ -15,6 +16,7 @@ class CustomFont extends StatelessWidget {
   final double fontSize, letterSpacing;
   final Color color;
   final FontWeight fontWeight;
+  final FontStyle fontStyle;
   final TextAlign textAlign;
   final String  fontFamily;
 
