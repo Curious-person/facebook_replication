@@ -2,9 +2,10 @@ import 'package:facebook_replication/constants.dart';
 import 'package:facebook_replication/widgets/customfont.dart';
 import 'package:facebook_replication/widgets/custom_inkwell_button.dart';
 import 'package:facebook_replication/widgets/custom_textformfield.dart';
+import '../widgets/custom_dialogs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:facebook_replication/widgets/custom_dialogs.dart'; 
+
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -31,24 +32,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
         usernameController.text.isEmpty ||
         passwordController.text.isEmpty ||
         confirmpasswordController.text.isEmpty) {
-          customDialog(
-              context,
-              title: "Missing Fields",
-              content: "Please fill up all fields.",
-              
-            );
+      CustomDialog.showErrorDialog(
+              context, "Please fill up all fields." );
+              return;
     } else if (passwordController.text != confirmpasswordController.text) {
-      customDialog(
-        context,
-        title: 'Error',
-        content: 'Password does not match',
+      CustomDialog.showErrorDialog(
+        context,'Password does not match',
       );
+      return;
     } else {
-      customDialog(
-        context,
-        title: 'Success',
-        content: 'You have successfully registered',
+      CustomDialog.showSuccessDialog(
+        context, 'You have successfully registered',
       );
+      return;
     }
   }
 

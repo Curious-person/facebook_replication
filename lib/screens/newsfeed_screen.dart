@@ -34,14 +34,14 @@ class NewsfeedScreen extends StatelessWidget {
           imagePost: 'assets/images/2.jpg',
 
         ),
-        PostCard(
+        const PostCard(
           userName: 'Robert Juanatas',
           postContent: 'Kicking off this NU Manila heat session with GDGoC Boracay Special!',
           numOfLikes: 42,
           date: 'March 24',
         ),
 
-        PostCard(
+        const PostCard(
           userName: 'Ruben Ali',
           postContent: 'Coming soon...',
           
@@ -54,22 +54,41 @@ class NewsfeedScreen extends StatelessWidget {
           ),
           SizedBox(
             height: 20.h,
-          )
+          ),
+        const PostCard(
+          userName: 'Rubenatics',
+          postContent: 'Hi fans! I will be having a concert on December 24, 2021. See you there!',
+          profileImageUrl: 'assets/images/4.jpg',
+          imageUrl: 'assets/images/3.jpg',
+          date: 'November 10, 2021',
+        ),
+        SizedBox(
+            height: 20.h,
+          ),
+        CarouselSlider(
+            options: CarouselOptions(
+              enableInfiniteScroll: false, height: 308.h, padEnds: false),
+              items: carouselItems(),
+          ),
+
+          
       ],
     );
   }
+
   List<Widget> carouselItems() {
     return [
-      PostCard(
+      
+        const PostCard(
         userName: 'Juan Kevinit Abad',
-        imageUrl: 'https://realismtoday.com/wp-content/uploads/2021/12/how-to-paint-realistic-portraits-Cesar-Santos-121621-696x1041.jpg',
-        profileImageUrl: 'https://realismtoday.com/wp-content/uploads/2021/12/how-to-paint-realistic-portraits-Cesar-Santos-121621-696x1041.jpg',
+        imageUrl: 'assets/images/1.jpg',    
+        profileImageUrl: 'assets/images/1.jpg',
         postContent: 'Hello, this is my first post on Facebook.',
         date: 'October 11',
         isAds: true,
         adsMarket: 'Flutter Philippines',
       ),
-        PostCard(
+        const PostCard(
         userName: 'Juan Kevinit Abad',
         imageUrl: 'assets/images/1.jpg',
         profileImageUrl: 'assets/images/1.jpg',
@@ -78,14 +97,32 @@ class NewsfeedScreen extends StatelessWidget {
         isAds: true,
         adsMarket: 'Flutter Philippines',
       ),
-        PostCard(
-        userName: 'Juan Kevinit Abad',
-        imageUrl: 'assets/images/1.jpg',
-        profileImageUrl: 'assets/images/1.jpg',
-        postContent: 'Hello, this is my first post on Facebook.',
+        const PostCard(
+        userName: 'Wanping Salamat',
+        imageUrl: 'assets/images/4.jpg',
+        profileImageUrl: 'assets/images/5.jpg',
+        postContent: 'Bakit nga ba hiwalay ang FB ng matatanda? Alamin sa post na ito.',
         date: 'October 11',
         isAds: true,
-        adsMarket: 'Flutter Philippines',
+        adsMarket: 'Fake News Totoo',
+      ),
+        const PostCard(
+        userName: 'Jomping Kalampay',
+        imageUrl: 'assets/images/2.jpg',
+        profileImageUrl: 'assets/images/3.jpg',
+        postContent: 'Tama si Duterte, i-boto natin si Quiboloy.',
+        date: 'March 8, 2025',
+        isAds: true,
+        adsMarket: 'Solid DDS Supporter',
+      ),
+        const PostCard(
+        userName: 'San Jose Del Monte',
+        imageUrl: 'assets/images/1.jpg',
+        profileImageUrl: 'assets/images/2.jpg',
+        postContent: 'Lalaki, natagpuang buhay.',
+        date: 'June 12, 2025',
+        isAds: true,
+        adsMarket: 'NNC',
       ),
     ];
   }

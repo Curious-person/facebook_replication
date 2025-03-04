@@ -1,3 +1,4 @@
+import 'package:facebook_replication/widgets/custom_dialogs.dart';
 import 'package:facebook_replication/widgets/custom_textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,6 +6,8 @@ import '../constants.dart';
 import '../widgets/custom_inkwell_button.dart';
 import 'profile_screen.dart';
 import 'home_screen.dart';
+import '../widgets/custom_dialogs.dart';
+
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
@@ -14,9 +17,20 @@ class LogInScreen extends StatefulWidget {
 }
 
 class _LogInScreenState extends State<LogInScreen> {
-    TextEditingController usernameController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
+    TextEditingController usernameController = TextEditingController(text: 'user');
+    TextEditingController passwordController = TextEditingController(text: 'user');
     final _formKey = GlobalKey<FormState>();
+  void login() {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      if (usernameController.text == "admin" &&
+          passwordController.text == "1234") {
+        Navigator.pushReplacementNamed(context, '/home');
+      } else {
+        CustomDialog.showErrorDialog(context, 'Invalid username or password');
+      }
+    }
+  }
     bool isObscure = false;
 
     @override 

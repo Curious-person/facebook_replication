@@ -36,95 +36,103 @@ class PostCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.r),
       ),
       elevation: 5,
-      margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+      margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
       child: Padding(
         padding: EdgeInsets.all(10.w),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                CircleAvatar(
-                  backgroundImage: profileImageUrl != null
-                      ? NetworkImage(profileImageUrl!)
-                      : null,
-                  radius: 20.r,
-                ),
-                SizedBox(width: 10.w),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      userName,
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.bold,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  CircleAvatar(
+                    backgroundImage: profileImageUrl != null
+                        ? NetworkImage(profileImageUrl!)
+                        : null,
+                    radius: 20.r,
+                  ),
+                  SizedBox(width: 10.w),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        userName,
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    Text(
-                      date,
-                      style: TextStyle(
-                        fontSize: 12.sp,
-                        color: Colors.grey,
+                      Text(
+                        date,
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          color: Colors.grey,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                Spacer(),
-                Icon(Icons.more_horiz),
-              ],
-            ),
-            SizedBox(height: 10.h),
-            Text(
-              postContent,
-              style: TextStyle(fontSize: 14.sp),
-            ),
+                    ],
+                  ),
+                  Spacer(),
+                  Icon(Icons.more_horiz),
+                ],
+              ),
+              SizedBox(height: 10.h),
+              Text(
+                postContent,
+                style: TextStyle(fontSize: 14.sp),
+              ),
             if (imageUrl != null) ...[
               SizedBox(height: 10.h),
               ClipRRect(
                 borderRadius: BorderRadius.circular(10.r),
-                child: Image.network(
-                  imageUrl!,
-                  width: double.infinity,
-                  height: isAds ? 200.h : null,
-                  fit: BoxFit.cover,
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxHeight: 250.h, 
+                    minHeight: 100.h,
+                  ),
+                  child: Image.network(
+                    imageUrl!,
+                    width: double.infinity,
+                    height: isAds ? 100.h : null, 
+                    fit: BoxFit.cover, 
+                  ),
                 ),
               ),
             ],
-            if (isAds && adsMarket != null) ...[
+              if (isAds && adsMarket != null) ...[
+                SizedBox(height: 10.h),
+                Text(
+                  adsMarket!,
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 5.h),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text('More Details'),
+                ),
+              ],
               SizedBox(height: 10.h),
-              Text(
-                adsMarket!,
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.bold,
+              if (!isAds) ...[
+                Row(
+                  children: [
+                    Icon(Icons.thumb_up, size: 20.sp, color: Colors.blue),
+                    SizedBox(width: 5.w),
+                    Text(numOfLikes?.toString() ?? '0'),
+                    Spacer(),
+                    Icon(Icons.comment, size: 20.sp, color: Colors.grey),
+                    SizedBox(width: 5.w),
+                    Text('Comment'),
+                    SizedBox(width: 10.w),
+                    Icon(Icons.share, size: 20.sp, color: Colors.grey),
+                    SizedBox(width: 5.w),
+                    Text('Share'),
+                  ],
                 ),
-              ),
-              SizedBox(height: 5.h),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text('More Details'),
-              ),
+              ],
             ],
-            SizedBox(height: 10.h),
-            if (!isAds) ...[
-              Row(
-                children: [
-                  Icon(Icons.thumb_up, size: 20.sp, color: Colors.blue),
-                  SizedBox(width: 5.w),
-                  Text(numOfLikes?.toString() ?? '0'),
-                  Spacer(),
-                  Icon(Icons.comment, size: 20.sp, color: Colors.grey),
-                  SizedBox(width: 5.w),
-                  Text('Comment'),
-                  SizedBox(width: 10.w),
-                  Icon(Icons.share, size: 20.sp, color: Colors.grey),
-                  SizedBox(width: 5.w),
-                  Text('Share'),
-                ],
-              ),
-            ],
-          ],
+          ),
         ),
       ),
     );

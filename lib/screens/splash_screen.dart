@@ -36,13 +36,14 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/facebook_logo.png',
+              'assets/images/nuSpace.png',
             ),
             SizedBox(
               height: ScreenUtil().setHeight(120),
             ),
-            const CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(FB_DARK_PRIMARY)
+            const LinearProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(FB_DARK_PRIMARY),
+
             ),
           ],
         ),

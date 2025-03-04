@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../screens/home_screen.dart';
 import '../screens/newsfeed_screen.dart';
 import '../screens/profile_screen.dart';
+import '../screens/splash_screen.dart';
 
 void main() => runApp(const FacebookReplication());
 
@@ -23,18 +24,12 @@ class FacebookReplication extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           debugShowMaterialGrid: false,
           title: 'Facebook Replication',
-          initialRoute: '/login',
+          initialRoute: '/splash',
           routes: {
-            '/home': (context) {
-              final args = ModalRoute.of(context)!.settings.arguments as String;
-              return HomeScreen(username: args);
-            },
+            '/home': (context) => const HomeScreen(username: 'defaultUsername'),
             '/login': (context) => const LogInScreen(),
             '/register': (context) => const RegisterScreen(),
-              '/profile': (context) {
-            final args = ModalRoute.of(context)!.settings.arguments as String;
-            return ProfileScreen(username: args);
-            },
+            '/splash': (context) => const SplashScreen(),
           },
         );
       }

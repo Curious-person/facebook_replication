@@ -5,6 +5,8 @@ import 'package:facebook_replication/widgets/customfont.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:facebook_replication/widgets/photos.dart';
+import 'package:facebook_replication/screens/splash_screen.dart';
+import 'package:facebook_replication/widgets/custom_dialogs.dart';
 
 class ProfileScreen extends StatefulWidget {
     final String username;
@@ -45,7 +47,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     decoration: BoxDecoration(
                       color: Colors.grey[300],
                       image: const DecorationImage(
-                        image: NetworkImage(''),
+                        image: NetworkImage("assets/images/3.jpg"),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -56,10 +58,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Stack(
                       alignment: Alignment.center,
                       children: [
-                        const CircleAvatar(
+                      GestureDetector(
+                        onTap: () => customShowImageDialog(context, imageUrl: "assets/images/duolingo.png"),
+                        child: CircleAvatar(
                           radius: 50,
-                          backgroundImage: NetworkImage(''),
+                          backgroundImage: NetworkImage("assets/images/duolingo.png"),
                         ),
+                      ),
+
                         Positioned(
                           bottom: 0,
                           right: 0,
